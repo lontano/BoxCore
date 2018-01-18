@@ -25,9 +25,40 @@
   Private Sub Collector_Error(ByRef sender As ConfigurableDevice, errorID As Integer, errorString As String)
   End Sub
 
+  Public Sub AddCollector(key As String, collector As Collector)
+    Try
+      If Not Me.Collectors.ContainsKey(key) Then
+        Me.Collectors.Add(key, collector)
+      End If
+    Catch ex As Exception
+
+    End Try
+  End Sub
+
+  Public Sub RemoveCollector(key As String)
+    Try
+      If Me.Collectors.ContainsKey(key) Then
+        Me.Collectors(key).Disconnect()
+        Me.Collectors.Remove(key)
+      End If
+    Catch ex As Exception
+
+    End Try
+  End Sub
+
+  Public Function GetCollector(key As String) As Collector
+    If Me.Collectors.ContainsKey(key) Then
+      Return Me.Collectors(key)
+    Else
+      Return Nothing
+    End If
+  End Function
+
   Public Sub ConnectAll()
 
   End Sub
 
+  Public Sub DisconnectAll()
 
+  End Sub
 End Class

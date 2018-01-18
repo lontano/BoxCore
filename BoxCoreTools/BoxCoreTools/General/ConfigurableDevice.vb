@@ -10,9 +10,16 @@ Public MustInherit Class ConfigurableDevice
     Enabled
     [Error]
   End Enum
+
+  <JsonIgnore()>
   Public Property State As eDeviceState = eDeviceState.Idle
 
+  Public Property Enabled As Boolean = False
+
+  <JsonIgnore()>
   Public Property LastErrorID As Integer = 0
+
+  <JsonIgnore()>
   Public Property LastErrorString As String = ""
 
   <JsonIgnore()>
@@ -53,6 +60,18 @@ Public MustInherit Class ConfigurableDevice
     Catch ex As Exception
     End Try
   End Sub
+
+  Public Function ShowConfigDialog(owner As IWin32Window) As DialogResult
+    Dim res As DialogResult = DialogResult.None
+    Try
+      Dim dlg As New dlgControlDeviceConfiguration()
+      dlg.ConfigurableDevice = Me
+      res = dlg.ShowDialog(owner) = DialogResult.OK
+    Catch ex As Exception
+
+    End Try
+    Return res
+  End Function
 #End Region
 
 End Class

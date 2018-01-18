@@ -24,6 +24,7 @@ Partial Class ControlDeviceConfigurationProperty
   Private Sub InitializeComponent()
     Me.TableLayoutPanelParameter = New System.Windows.Forms.TableLayoutPanel()
     Me.LabelName = New System.Windows.Forms.Label()
+    Me.PanelValue = New System.Windows.Forms.Panel()
     Me.TableLayoutPanelParameter.SuspendLayout()
     Me.SuspendLayout()
     '
@@ -33,21 +34,33 @@ Partial Class ControlDeviceConfigurationProperty
     Me.TableLayoutPanelParameter.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
     Me.TableLayoutPanelParameter.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
     Me.TableLayoutPanelParameter.Controls.Add(Me.LabelName, 0, 0)
-    Me.TableLayoutPanelParameter.Location = New System.Drawing.Point(119, 7)
+    Me.TableLayoutPanelParameter.Controls.Add(Me.PanelValue, 1, 0)
+    Me.TableLayoutPanelParameter.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TableLayoutPanelParameter.Location = New System.Drawing.Point(0, 0)
     Me.TableLayoutPanelParameter.Name = "TableLayoutPanelParameter"
     Me.TableLayoutPanelParameter.RowCount = 1
     Me.TableLayoutPanelParameter.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanelParameter.Size = New System.Drawing.Size(212, 56)
+    Me.TableLayoutPanelParameter.Size = New System.Drawing.Size(742, 79)
     Me.TableLayoutPanelParameter.TabIndex = 0
     '
     'LabelName
     '
     Me.LabelName.AutoSize = True
+    Me.LabelName.Dock = System.Windows.Forms.DockStyle.Fill
     Me.LabelName.Location = New System.Drawing.Point(3, 0)
     Me.LabelName.Name = "LabelName"
-    Me.LabelName.Size = New System.Drawing.Size(99, 20)
+    Me.LabelName.Size = New System.Drawing.Size(365, 79)
     Me.LabelName.TabIndex = 0
     Me.LabelName.Text = "Param name"
+    Me.LabelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+    '
+    'PanelValue
+    '
+    Me.PanelValue.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.PanelValue.Location = New System.Drawing.Point(374, 3)
+    Me.PanelValue.Name = "PanelValue"
+    Me.PanelValue.Size = New System.Drawing.Size(365, 73)
+    Me.PanelValue.TabIndex = 1
     '
     'ControlDeviceConfigurationProperty
     '
@@ -64,4 +77,5 @@ Partial Class ControlDeviceConfigurationProperty
 
   Friend WithEvents TableLayoutPanelParameter As TableLayoutPanel
   Friend WithEvents LabelName As Label
+  Friend WithEvents PanelValue As Panel
 End Class

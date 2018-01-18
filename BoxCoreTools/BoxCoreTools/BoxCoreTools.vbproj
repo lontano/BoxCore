@@ -76,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boxes\WhiteBox.vb" />
     <Compile Include="Collector\CollectorManager.vb" />
     <Compile Include="Collector\Collectors\Collector.vb" />
     <Compile Include="Collector\Collectors\Collector_TCP.vb" />
@@ -88,19 +89,20 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\ConfigurableDevice.vb" />
-    <Compile Include="General\Controls\ControlDeviceConfiguration.Designer.vb">
-      <DependentUpon>ControlDeviceConfiguration.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\Controls\ControlDeviceConfiguration.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="General\Controls\ControlDeviceConfigurationProperty.Designer.vb">
+    <Compile Include="General\ConfigurableDeviceManager.vb" />
+    <Compile Include="General\FormsAndControls\ControlDeviceConfigurationProperty.Designer.vb">
       <DependentUpon>ControlDeviceConfigurationProperty.vb</DependentUpon>
     </Compile>
-    <Compile Include="General\Controls\ControlDeviceConfigurationProperty.vb">
+    <Compile Include="General\FormsAndControls\ControlDeviceConfigurationProperty.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="General\CustomDataAttribute.vb" />
+    <Compile Include="General\FormsAndControls\dlgControlDeviceConfiguration.Designer.vb">
+      <DependentUpon>dlgControlDeviceConfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\FormsAndControls\dlgControlDeviceConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General\RealTimeStat.vb" />
     <Compile Include="General\RealTimeStats.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -123,11 +125,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\Controls\ControlDeviceConfiguration.resx">
-      <DependentUpon>ControlDeviceConfiguration.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\Controls\ControlDeviceConfigurationProperty.resx">
+    <EmbeddedResource Include="General\FormsAndControls\ControlDeviceConfigurationProperty.resx">
       <DependentUpon>ControlDeviceConfigurationProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\FormsAndControls\dlgControlDeviceConfiguration.resx">
+      <DependentUpon>dlgControlDeviceConfiguration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

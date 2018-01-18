@@ -1,7 +1,7 @@
 ﻿Public Class Collector_UDP
   Inherits Collector
 
-  <CustomDataAttribute("Config")>
+  <CustomDataAttribute(True, "Config")>
   Public Property IsBroadcast As Boolean = False
 
   Public Overrides Sub Connect()

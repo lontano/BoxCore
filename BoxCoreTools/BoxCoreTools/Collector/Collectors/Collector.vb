@@ -3,9 +3,8 @@
 
   Public Event DataArrived(ByRef sender As Collector, data() As Byte, dataString As String)
 
-  <CustomDataAttribute("Config")>
+  <CustomDataAttribute(True, "Config")>
   Public Property Port As Integer
-
 
   Public Sub New()
     MyBase.Name = Me.GetType().Name
