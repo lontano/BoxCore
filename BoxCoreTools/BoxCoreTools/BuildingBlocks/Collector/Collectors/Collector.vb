@@ -8,10 +8,13 @@
 
   Public Sub New()
     MyBase.Name = Me.GetType().Name
-    MyBase.ID = "0"
   End Sub
 
   Public MustOverride Sub Connect()
   Public MustOverride Sub Disconnect()
+
+  Public Overrides Function ToString() As String
+    Return Me.Name & " <" & Me.GetType().Name & " port " & Me.Port & ">"
+  End Function
 
 End Class

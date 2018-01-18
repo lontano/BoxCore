@@ -30,17 +30,23 @@ Partial Class Form1
     Me.NewWhiteboxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.LoadDefaultWhiteboxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.SetAsDefaultWhiteboxToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-    Me.CollectorManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+    Me.CollectorManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.AddNewCollectorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.TCPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
     Me.UDPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.EncoderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.TxManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.AddNewTransmitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.TCPToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+    Me.UDPToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ControlWhitebox = New BoxCoreTools.ControlWhitebox()
     Me.MenuStrip1.SuspendLayout()
     Me.SuspendLayout()
     '
     'Button1
     '
-    Me.Button1.Location = New System.Drawing.Point(226, 342)
+    Me.Button1.Location = New System.Drawing.Point(12, 36)
     Me.Button1.Name = "Button1"
     Me.Button1.Size = New System.Drawing.Size(139, 84)
     Me.Button1.TabIndex = 0
@@ -49,7 +55,7 @@ Partial Class Form1
     '
     'Button2
     '
-    Me.Button2.Location = New System.Drawing.Point(526, 342)
+    Me.Button2.Location = New System.Drawing.Point(157, 36)
     Me.Button2.Name = "Button2"
     Me.Button2.Size = New System.Drawing.Size(118, 75)
     Me.Button2.TabIndex = 1
@@ -74,7 +80,7 @@ Partial Class Form1
     '
     'WhiteboxToolStripMenuItem
     '
-    Me.WhiteboxToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWhiteboxToolStripMenuItem, Me.LoadDefaultWhiteboxToolStripMenuItem, Me.SetAsDefaultWhiteboxToolStripMenuItem, Me.ToolStripMenuItem1, Me.CollectorManagerToolStripMenuItem})
+    Me.WhiteboxToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWhiteboxToolStripMenuItem, Me.LoadDefaultWhiteboxToolStripMenuItem, Me.SetAsDefaultWhiteboxToolStripMenuItem, Me.ToolStripMenuItem1, Me.CollectorManagerToolStripMenuItem, Me.EncoderToolStripMenuItem, Me.TxManagerToolStripMenuItem})
     Me.WhiteboxToolStripMenuItem.Name = "WhiteboxToolStripMenuItem"
     Me.WhiteboxToolStripMenuItem.Size = New System.Drawing.Size(100, 29)
     Me.WhiteboxToolStripMenuItem.Text = "Whitebox"
@@ -97,17 +103,17 @@ Partial Class Form1
     Me.SetAsDefaultWhiteboxToolStripMenuItem.Size = New System.Drawing.Size(280, 30)
     Me.SetAsDefaultWhiteboxToolStripMenuItem.Text = "Set as default whitebox"
     '
+    'ToolStripMenuItem1
+    '
+    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(277, 6)
+    '
     'CollectorManagerToolStripMenuItem
     '
     Me.CollectorManagerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewCollectorToolStripMenuItem})
     Me.CollectorManagerToolStripMenuItem.Name = "CollectorManagerToolStripMenuItem"
     Me.CollectorManagerToolStripMenuItem.Size = New System.Drawing.Size(280, 30)
     Me.CollectorManagerToolStripMenuItem.Text = "Collector manager"
-    '
-    'ToolStripMenuItem1
-    '
-    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(277, 6)
     '
     'AddNewCollectorToolStripMenuItem
     '
@@ -119,20 +125,64 @@ Partial Class Form1
     'TCPToolStripMenuItem
     '
     Me.TCPToolStripMenuItem.Name = "TCPToolStripMenuItem"
-    Me.TCPToolStripMenuItem.Size = New System.Drawing.Size(210, 30)
+    Me.TCPToolStripMenuItem.Size = New System.Drawing.Size(131, 30)
     Me.TCPToolStripMenuItem.Text = "TCP"
     '
     'UDPToolStripMenuItem
     '
     Me.UDPToolStripMenuItem.Name = "UDPToolStripMenuItem"
-    Me.UDPToolStripMenuItem.Size = New System.Drawing.Size(210, 30)
+    Me.UDPToolStripMenuItem.Size = New System.Drawing.Size(131, 30)
     Me.UDPToolStripMenuItem.Text = "UDP"
+    '
+    'EncoderToolStripMenuItem
+    '
+    Me.EncoderToolStripMenuItem.Name = "EncoderToolStripMenuItem"
+    Me.EncoderToolStripMenuItem.Size = New System.Drawing.Size(280, 30)
+    Me.EncoderToolStripMenuItem.Text = "Encoder"
+    '
+    'TxManagerToolStripMenuItem
+    '
+    Me.TxManagerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddNewTransmitterToolStripMenuItem})
+    Me.TxManagerToolStripMenuItem.Name = "TxManagerToolStripMenuItem"
+    Me.TxManagerToolStripMenuItem.Size = New System.Drawing.Size(280, 30)
+    Me.TxManagerToolStripMenuItem.Text = "Tx manager"
+    '
+    'AddNewTransmitterToolStripMenuItem
+    '
+    Me.AddNewTransmitterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TCPToolStripMenuItem1, Me.UDPToolStripMenuItem1})
+    Me.AddNewTransmitterToolStripMenuItem.Name = "AddNewTransmitterToolStripMenuItem"
+    Me.AddNewTransmitterToolStripMenuItem.Size = New System.Drawing.Size(270, 30)
+    Me.AddNewTransmitterToolStripMenuItem.Text = "Add new transmitter..."
+    '
+    'TCPToolStripMenuItem1
+    '
+    Me.TCPToolStripMenuItem1.Name = "TCPToolStripMenuItem1"
+    Me.TCPToolStripMenuItem1.Size = New System.Drawing.Size(131, 30)
+    Me.TCPToolStripMenuItem1.Text = "TCP"
+    '
+    'UDPToolStripMenuItem1
+    '
+    Me.UDPToolStripMenuItem1.Name = "UDPToolStripMenuItem1"
+    Me.UDPToolStripMenuItem1.Size = New System.Drawing.Size(131, 30)
+    Me.UDPToolStripMenuItem1.Text = "UDP"
+    '
+    'ControlWhitebox
+    '
+    Me.ControlWhitebox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ControlWhitebox.Location = New System.Drawing.Point(12, 126)
+    Me.ControlWhitebox.Name = "ControlWhitebox"
+    Me.ControlWhitebox.Size = New System.Drawing.Size(1338, 655)
+    Me.ControlWhitebox.TabIndex = 3
+    Me.ControlWhitebox.Whitebox = Nothing
     '
     'Form1
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.ClientSize = New System.Drawing.Size(1362, 793)
+    Me.Controls.Add(Me.ControlWhitebox)
     Me.Controls.Add(Me.Button2)
     Me.Controls.Add(Me.Button1)
     Me.Controls.Add(Me.MenuStrip1)
@@ -159,4 +209,10 @@ Partial Class Form1
   Friend WithEvents AddNewCollectorToolStripMenuItem As ToolStripMenuItem
   Friend WithEvents TCPToolStripMenuItem As ToolStripMenuItem
   Friend WithEvents UDPToolStripMenuItem As ToolStripMenuItem
+  Friend WithEvents EncoderToolStripMenuItem As ToolStripMenuItem
+  Friend WithEvents TxManagerToolStripMenuItem As ToolStripMenuItem
+  Friend WithEvents AddNewTransmitterToolStripMenuItem As ToolStripMenuItem
+  Friend WithEvents TCPToolStripMenuItem1 As ToolStripMenuItem
+  Friend WithEvents UDPToolStripMenuItem1 As ToolStripMenuItem
+  Friend WithEvents ControlWhitebox As ControlWhitebox
 End Class

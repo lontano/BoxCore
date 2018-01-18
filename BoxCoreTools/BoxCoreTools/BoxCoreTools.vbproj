@@ -48,8 +48,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -76,11 +76,29 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boxes\ControlWhitebox.Designer.vb">
+      <DependentUpon>ControlWhitebox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Boxes\ControlWhitebox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Boxes\WhiteBox.vb" />
-    <Compile Include="Collector\CollectorManager.vb" />
-    <Compile Include="Collector\Collectors\Collector.vb" />
-    <Compile Include="Collector\Collectors\Collector_TCP.vb" />
-    <Compile Include="Collector\Collectors\Collector_UDP.vb" />
+    <Compile Include="BuildingBlocks\Collector\CollectorManager.vb" />
+    <Compile Include="BuildingBlocks\Collector\Collectors\Collector.vb" />
+    <Compile Include="BuildingBlocks\Collector\Collectors\Collector_TCP.vb" />
+    <Compile Include="BuildingBlocks\Collector\Collectors\Collector_UDP.vb" />
+    <Compile Include="BuildingBlocks\Encoder\ControlEncoder.Designer.vb">
+      <DependentUpon>ControlEncoder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BuildingBlocks\Encoder\ControlEncoder.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuildingBlocks\Encoder\DummyEncoder.vb" />
+    <Compile Include="BuildingBlocks\Encoder\Encoder.vb" />
+    <Compile Include="BuildingBlocks\Transmitter\TransmitterManager.vb" />
+    <Compile Include="BuildingBlocks\Transmitter\Transmitters\Transmitter.vb" />
+    <Compile Include="BuildingBlocks\Transmitter\Transmitters\Transmitter_TCP.vb" />
+    <Compile Include="BuildingBlocks\Transmitter\Transmitters\Transmitter_UDP.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +106,24 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrameInfo\FrameCodificationInfo.vb" />
+    <Compile Include="FrameInfo\FrameCompositeInfo.vb" />
+    <Compile Include="FrameInfo\FramePayloadInfo.vb" />
+    <Compile Include="FrameInfo\FrameStream.vb" />
     <Compile Include="General\ConfigurableDevice.vb" />
     <Compile Include="General\ConfigurableDeviceManager.vb" />
+    <Compile Include="General\FormsAndControls\ControlConfigurableDeviceManager.Designer.vb">
+      <DependentUpon>ControlConfigurableDeviceManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\FormsAndControls\ControlConfigurableDeviceManager.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="General\FormsAndControls\ControlConfigurationDevice.Designer.vb">
+      <DependentUpon>ControlConfigurationDevice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\FormsAndControls\ControlConfigurationDevice.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="General\FormsAndControls\ControlDeviceConfigurationProperty.Designer.vb">
       <DependentUpon>ControlDeviceConfigurationProperty.vb</DependentUpon>
     </Compile>
@@ -105,6 +139,7 @@
     </Compile>
     <Compile Include="General\RealTimeStat.vb" />
     <Compile Include="General\RealTimeStats.vb" />
+    <Compile Include="Modules\Reflection.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -122,8 +157,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Boxes\ControlWhitebox.resx">
+      <DependentUpon>ControlWhitebox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuildingBlocks\Encoder\ControlEncoder.resx">
+      <DependentUpon>ControlEncoder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\FormsAndControls\ControlConfigurableDeviceManager.resx">
+      <DependentUpon>ControlConfigurableDeviceManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\FormsAndControls\ControlConfigurationDevice.resx">
+      <DependentUpon>ControlConfigurationDevice.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\FormsAndControls\ControlDeviceConfigurationProperty.resx">
       <DependentUpon>ControlDeviceConfigurationProperty.vb</DependentUpon>
@@ -149,6 +196,13 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GSFilters\GSTools\GSTools.csproj">
+      <Project>{2c72e154-a6f1-4236-9404-5756e5a15325}</Project>
+      <Name>GSTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

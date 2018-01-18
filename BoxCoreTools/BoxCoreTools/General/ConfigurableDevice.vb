@@ -1,9 +1,20 @@
-﻿Imports Newtonsoft.Json
+﻿Imports System.Xml.Serialization
+Imports Newtonsoft.Json
 
 Public MustInherit Class ConfigurableDevice
+  Implements IDisposable
+
 #Region "Properties"
-  Public Property ID As String = "0"
+  Public Property ID As String = Guid.NewGuid.ToString()
+
+  <CustomDataAttribute(True, "ID")>
   Public Property Name As String = Me.GetType().Name
+
+  Public ReadOnly Property TypeString() As String
+    Get
+      Return Me.GetType().Name()
+    End Get
+  End Property
 
   Public Enum eDeviceState
     Idle
@@ -11,18 +22,18 @@ Public MustInherit Class ConfigurableDevice
     [Error]
   End Enum
 
-  <JsonIgnore()>
+  <JsonIgnore()> <XmlIgnoreAttribute()>
   Public Property State As eDeviceState = eDeviceState.Idle
 
   Public Property Enabled As Boolean = False
 
-  <JsonIgnore()>
+  <JsonIgnore()> <XmlIgnoreAttribute()>
   Public Property LastErrorID As Integer = 0
 
-  <JsonIgnore()>
+  <JsonIgnore()> <XmlIgnoreAttribute()>
   Public Property LastErrorString As String = ""
 
-  <JsonIgnore()>
+  <JsonIgnore()> <XmlIgnoreAttribute()>
   Public Property Stats As New RealTimeStats()
 #End Region
 
@@ -66,12 +77,48 @@ Public MustInherit Class ConfigurableDevice
     Try
       Dim dlg As New dlgControlDeviceConfiguration()
       dlg.ConfigurableDevice = Me
-      res = dlg.ShowDialog(owner) = DialogResult.OK
+      res = dlg.ShowDialog(owner)
     Catch ex As Exception
 
     End Try
     Return res
   End Function
+
+  Public Overrides Function ToString() As String
+    Return Me.Name & " (" & Me.GetType().Name & ")"
+  End Function
+
+#Region "IDisposable Support"
+  Private disposedValue As Boolean ' Para detectar llamadas redundantes
+
+  ' IDisposable
+  Protected Overridable Sub Dispose(disposing As Boolean)
+    If Not disposedValue Then
+      If disposing Then
+        ' TODO: elimine el estado administrado (objetos administrados).
+      End If
+
+      ' TODO: libere los recursos no administrados (objetos no administrados) y reemplace Finalize() a continuación.
+      ' TODO: configure los campos grandes en nulos.
+    End If
+    disposedValue = True
+  End Sub
+
+  ' TODO: reemplace Finalize() solo si el anterior Dispose(disposing As Boolean) tiene código para liberar recursos no administrados.
+  'Protected Overrides Sub Finalize()
+  '    ' No cambie este código. Coloque el código de limpieza en el anterior Dispose(disposing As Boolean).
+  '    Dispose(False)
+  '    MyBase.Finalize()
+  'End Sub
+
+  ' Visual Basic agrega este código para implementar correctamente el patrón descartable.
+  Public Sub Dispose() Implements IDisposable.Dispose
+    ' No cambie este código. Coloque el código de limpieza en el anterior Dispose(disposing As Boolean).
+    Dispose(True)
+    ' TODO: quite la marca de comentario de la siguiente línea si Finalize() se ha reemplazado antes.
+    ' GC.SuppressFinalize(Me)
+  End Sub
+#End Region
 #End Region
 
 End Class

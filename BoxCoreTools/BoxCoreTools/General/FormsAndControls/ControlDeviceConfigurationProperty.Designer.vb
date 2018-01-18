@@ -40,7 +40,7 @@ Partial Class ControlDeviceConfigurationProperty
     Me.TableLayoutPanelParameter.Name = "TableLayoutPanelParameter"
     Me.TableLayoutPanelParameter.RowCount = 1
     Me.TableLayoutPanelParameter.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanelParameter.Size = New System.Drawing.Size(742, 79)
+    Me.TableLayoutPanelParameter.Size = New System.Drawing.Size(742, 51)
     Me.TableLayoutPanelParameter.TabIndex = 0
     '
     'LabelName
@@ -49,7 +49,7 @@ Partial Class ControlDeviceConfigurationProperty
     Me.LabelName.Dock = System.Windows.Forms.DockStyle.Fill
     Me.LabelName.Location = New System.Drawing.Point(3, 0)
     Me.LabelName.Name = "LabelName"
-    Me.LabelName.Size = New System.Drawing.Size(365, 79)
+    Me.LabelName.Size = New System.Drawing.Size(365, 51)
     Me.LabelName.TabIndex = 0
     Me.LabelName.Text = "Param name"
     Me.LabelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -59,7 +59,7 @@ Partial Class ControlDeviceConfigurationProperty
     Me.PanelValue.Dock = System.Windows.Forms.DockStyle.Fill
     Me.PanelValue.Location = New System.Drawing.Point(374, 3)
     Me.PanelValue.Name = "PanelValue"
-    Me.PanelValue.Size = New System.Drawing.Size(365, 73)
+    Me.PanelValue.Size = New System.Drawing.Size(365, 45)
     Me.PanelValue.TabIndex = 1
     '
     'ControlDeviceConfigurationProperty
@@ -68,7 +68,7 @@ Partial Class ControlDeviceConfigurationProperty
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.Controls.Add(Me.TableLayoutPanelParameter)
     Me.Name = "ControlDeviceConfigurationProperty"
-    Me.Size = New System.Drawing.Size(742, 79)
+    Me.Size = New System.Drawing.Size(742, 51)
     Me.TableLayoutPanelParameter.ResumeLayout(False)
     Me.TableLayoutPanelParameter.PerformLayout()
     Me.ResumeLayout(False)

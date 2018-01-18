@@ -32,7 +32,6 @@
     End Try
   End Sub
 
-
   Public Sub SetValue(name As String, ByRef value As Integer)
     Try
       Me.LabelName.Text = name
@@ -66,7 +65,6 @@
     Catch ex As Exception
     End Try
   End Sub
-
 
   Public Sub GetValue(ByRef value As Boolean)
     If Not _checkBox Is Nothing Then
